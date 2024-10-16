@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="customer" transform="translate(-2 -2)">
+    <path id="Path_26489" data-name="Path 26489" d="M7.367,51.15A1.15,1.15,0,0,0,6.217,50H3.15A1.15,1.15,0,0,0,2,51.15V54.6H7.367Z" transform="translate(0 -32.6)" fill="#c3c3c3"/>
+    <circle id="Ellipse_17760" data-name="Ellipse 17760" cx="1.5" cy="1.5" r="1.5" transform="translate(3 14.75)" fill="#c3c3c3"/>
+    <path id="Path_26490" data-name="Path 26490" d="M25,51.15V54.6h5.367V51.15A1.15,1.15,0,0,0,29.217,50H26.15A1.15,1.15,0,0,0,25,51.15Z" transform="translate(-15.683 -32.6)" fill="#c3c3c3"/>
+    <circle id="Ellipse_17761" data-name="Ellipse 17761" cx="1.5" cy="1.5" r="1.5" transform="translate(10.5 14.75)" fill="#c3c3c3"/>
+    <path id="Path_26491" data-name="Path 26491" d="M52.217,50H49.15A1.15,1.15,0,0,0,48,51.15V54.6h5.367V51.15A1.15,1.15,0,0,0,52.217,50Z" transform="translate(-31.367 -32.6)" fill="#c3c3c3"/>
+    <circle id="Ellipse_17762" data-name="Ellipse 17762" cx="1.5" cy="1.5" r="1.5" transform="translate(18 14.75)" fill="#c3c3c3"/>
+    <path id="Path_26492" data-name="Path 26492" d="M25.033,18.131a2.936,2.936,0,0,0-.681-1.855l-.408.554a2.049,2.049,0,0,1,.5,1.3c0,1.559-2.027,2.875-4.426,2.875s-4.426-1.316-4.426-2.875a2.05,2.05,0,0,1,.5-1.3l-.408-.554A2.936,2.936,0,0,0,15,18.131c0,2.042,2.2,3.642,5.017,3.642S25.033,20.173,25.033,18.131Z" transform="translate(-8.017 -9.74)" fill="#c3c3c3"/>
+    <rect id="Rectangle_21579" data-name="Rectangle 21579" width="1" height="3" transform="translate(11.5 12.2)" fill="#c3c3c3"/>
+    <rect id="Rectangle_21580" data-name="Rectangle 21580" width="0.767" height="4.679" transform="matrix(0.819, -0.573, 0.573, 0.819, 15.936, 10.947)" fill="#c3c3c3"/>
+    <path id="Path_26493" data-name="Path 26493" d="M22,13.636l3.45,2.123V11.8L22,9.394Z" transform="translate(-13.51 -4.56)" fill="#c3c3c3"/>
+    <path id="Path_26494" data-name="Path 26494" d="M22.945,4.136l3.471,2.42,3.471-2.42L26.416,2Z" transform="translate(-14.416)" fill="#c3c3c3"/>
+    <path id="Path_26495" data-name="Path 26495" d="M36.45,13.636V9.394L33,11.8v3.96Z" transform="translate(-20.94 -4.56)" fill="#c3c3c3"/>
+    <rect id="Rectangle_21581" data-name="Rectangle 21581" width="4.679" height="0.767" transform="matrix(0.573, -0.819, 0.819, 0.573, 4.753, 14.341)" fill="#c3c3c3"/>
+  </g>
+</svg>

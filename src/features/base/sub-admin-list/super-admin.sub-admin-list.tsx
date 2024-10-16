@@ -1,0 +1,114 @@
+import React, { useEffect } from 'react';
+import Pagination from '@/features/shared/pagination';
+import { useSubAdminListStore } from '@/stores';
+import { createGenericApi } from '@/http/generic-api';
+import { UserModel } from '@/types/auth';
+import LoadingWrapper from '@/features/shared/loading-wrapper';
+import CommonSelect from '@/components/common/select-option';
+import { Typography } from '@/components/common/typography';
+import DebouncedSearchInput from '@/components/common/debounced-input';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
+import { Paths } from '@/constants';
+import { strings } from '@/utils/helpers';
+
+const SubAdminList: React.FC = () => {
+  const navigate = useNavigate();
+  const { entities, setEntities, pageNo, pageSize, filters, setFilters, pagination } = useSubAdminListStore();
+  const api = createGenericApi<unknown, UserModel>('users');
+
+  const handleAddSubAdmin = () => {
+    navigate(strings.normalizeRoute(Paths.CREATE));
+  };
+
+  const fetch = async () => {
+    const response = await api.search({ pageNo, pageSize, query: filters });
+    if (response) setEntities(response);
+  };
+
+  const handleStatusChange = (value: string) => {
+    setFilters({ ...filters, status: value });
+  };
+
+  const handleTypeChange = (value: string) => {
+    setFilters({ ...filters, type: value });
+  };
+
+  const handleSearch = (value: string) => {
+    if (value !== filters.search) {
+      setFilters({ ...filters, search: value });
+    }
+  };
+
+  useEffect(() => {
+    fetch();
+  }, [pageNo, pageSize, filters]);
+
+  return (
+    <LoadingWrapper>
+      <section className="w-full h-full bg-white">
+        <div className="w-full flex items-center justify-between p-2">
+          <div className="flex items-center gap-x-2">
+            <DebouncedSearchInput value={filters.search} onSearch={handleSearch} />
+            <CommonSelect
+              value={filters?.status}
+              onChange={handleStatusChange}
+              placeholder="Status"
+              options={[
+                { label: 'Active', value: 'active' },
+                { label: 'Inactive', value: 'inactive' },
+              ]}
+              clearable
+            />
+            <CommonSelect
+              value={filters?.type}
+              onChange={handleTypeChange}
+              placeholder="Type"
+              options={[
+                { label: 'Admin', value: 'admin' },
+                { label: 'Referred', value: 'referred' },
+              ]}
+              clearable
+            />
+          </div>
+          <div className="flex items-center gap-x-2">
+            <Button variant="ghost" onClick={handleAddSubAdmin} className="box-shadow bg-orange-400 text-white">
+              + Add Sub Admin
+            </Button>
+          </div>
+        </div>
+        <table className="w-full bg-white border border-l-0 border-r-0 border-gray-200">
+          <thead>
+            <tr className="border-b">
+              <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">ID</th>
+              <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">Name</th>
+              <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">Email</th>
+              <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            {entities.length ? (
+              entities.map((user) => (
+                <tr key={user.id} className="border-b">
+                  <td className="px-6 py-4 text-sm text-gray-700">{user.id}</td>
+                  <td className="px-6 py-4 text-sm text-gray-700">{user.fullName}</td>
+                  <td className="px-6 py-4 text-sm text-gray-700">{user.email}</td>
+                  <td className="px-6 py-4 text-sm text-gray-700">{user.role?.name}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={4} className="text-center py-4">
+                  <Typography variant="h5">No users found.</Typography>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </section>
+      <Pagination {...pagination()} />
+    </LoadingWrapper>
+  );
+};
+
+export default SubAdminList;
