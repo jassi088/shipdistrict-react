@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import Pagination from '@/features/shared/pagination';
 import { useCustomerListStore, useDialogStore, useLoadingStore } from '@/stores';
 import { createGenericApi } from '@/http/generic-api';
@@ -71,9 +71,9 @@ const SuperAdminCustomerList: React.FC = () => {
   }
 
   return (
-    <div className="w-full h-full bg-white flex flex-col px-4 pt-2 overflow-scroll">
+     <Fragment>
       {/* Filters and buttons */}
-      <div className="w-full overflow-x-scroll">
+      <div className="w-full p-5 overflow-x-scroll">
         <div className="w-full flex flex-col items-center justify-between p-2 border border-gray-200 rounded-t-lg md:flex-row">
           <div className="w-full flex flex-col items-center gap-x-2 md:flex-row">
             <DebouncedSearchInput value={filters.search} onSearch={handleSearch} />
@@ -127,7 +127,7 @@ const SuperAdminCustomerList: React.FC = () => {
         </div>
 
         {/* Scrollable table container */}
-        <table className="w-full bg-white overflow-scroll hidden">
+        <table className="w-full bg-white">
           <thead className="border-b">
             <tr>
               <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">Customer Id</th>
@@ -173,7 +173,7 @@ const SuperAdminCustomerList: React.FC = () => {
       </div>
 
       <Pagination {...pagination()} />
-    </div>
+      </Fragment>
   );
 };
 

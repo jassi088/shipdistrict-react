@@ -29,7 +29,7 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <div
       className={cn(
-        'bg-white w-full items-center justify-center gap-x-4 py-2 box-shadow',
+        'bg-white webkit-available fixed bottom-0 px-1 items-center justify-center gap-x-4 py-2 box-shadow',
         totalPages === 0 ? 'hidden' : 'flex',
       )}
     >
